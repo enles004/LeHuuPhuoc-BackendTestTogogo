@@ -1,4 +1,4 @@
-# Hệ thống Quản lý Nhân sự
+# Hệ thống Backend
 
 ## Giới thiệu
 Dự án này là hệ thống quản lý nhân sự, xây dựng theo kiến trúc Hexagonal, sử dụng Python và SQLAlchemy.
