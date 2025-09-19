@@ -13,7 +13,6 @@ Dự án này là hệ thống quản lý nhân sự, xây dựng theo kiến tr
 1. **Clone dự án**
    ```bash
    git clone <link-repo>
-   cd test_tuyen_dung
    ```
 
 2. **Cài đặt các thư viện**
