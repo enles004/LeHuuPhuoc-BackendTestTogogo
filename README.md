@@ -1,3 +1,76 @@
+# Hệ thống Quản lý Nhân sự
+
+## Giới thiệu
+Dự án này là hệ thống quản lý nhân sự, xây dựng theo kiến trúc Hexagonal, sử dụng Python và SQLAlchemy.
+
+## Yêu cầu hệ thống
+- Python >= 3.10
+- pip
+- Cơ sở dữ liệu (ví dụ: PostgreSQL, SQLite...)
+
+## Cài đặt
+
+1. **Clone dự án**
+   ```bash
+   git clone <link-repo>
+   cd test_tuyen_dung
+   ```
+
+2. **Cài đặt các thư viện**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+3. **Cấu hình database**
+   - Chỉnh sửa file cấu hình kết nối database tại:  
+     `src/infrastructure/database/sessions.py`  
+   - Hoặc tạo file .env và thêm URL_DB trong đó
+
+4. **Khởi tạo database**
+   - Nếu dùng SQLAlchemy, có thể chạy lệnh migrate hoặc tự động tạo bảng:
+     ```bash
+     alembic upgrade head
+     ```
+
+## Chạy ứng dụng
+
+1. **Khởi động API**
+   - Nếu dùng FastAPI:
+     ```bash
+     python main.py
+     ```
+
+2. **Truy cập API**
+   - Mở trình duyệt và truy cập:  
+     ```
+     http://localhost:8000
+     ```
+   - Xem tài liệu API:  
+     ```
+     http://localhost:8000/docs
+     ```
+
+## Các API chính
+
+- **Tạo nhân viên mới**
+  - `POST /employees`
+  - Body: `{ "name": "...", "email": "...", "position": "...", "department": "...", "start_date": "YYYY-MM-DD" }`
+
+- **Lấy danh sách nhân viên theo phòng ban**
+  - `GET /employees?department=...`
+
+- **Cập nhật ca làm việc cho nhân viên**
+  - `PUT /schedules`
+  - Body: `{ "employee_id": ..., "work_day": "YYYY-MM-DD", "shift": "morning|afternoon|full_day" }`
+
+## Kiến trúc dự án
+
+- `src/api/`: Định nghĩa các route API
+- `src/app/use_cases/`: Xử lý nghiệp vụ
+- `src/domain/`: Định nghĩa model, port
+- `src/infrastructure/`: Adapter cho database, service
+
+
 **1. API tạo nhân viên mới**
 Luồng xử lý:
 - API Route
